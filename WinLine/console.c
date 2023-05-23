@@ -12,15 +12,25 @@ int main()
     while (exitValue == 0) 
     {
         char* command[30];
-        printf("hello world> ");
+        printf("Enter a command> ");
         fgets(command, sizeof(command), stdin);
-        if (strstr(command, "hello") != NULL)
+       
+        char * args = strtok(command, "/");
+        if (strcmp(args, "help") == 0)
         {
-            char* args = strtok(command, " ");
-            printf("%s", args);
-
-
+            printf("Help command");
         }
+        if(strcmp(args, "exit") == 0)
+        {
+            printf("Exit");
+            exitValue = 1;
+        }
+        // while (args != NULL)
+        // {
+        //     printf("%s\n", args);
+        //     args = strtok(NULL, " ");
+        // }
+        
         
 
     }
