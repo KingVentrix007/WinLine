@@ -3,7 +3,7 @@
 #include "string.h";
 #include "console.h";
 #include "erros.h";
-printf("Start");
+
 
 
 
