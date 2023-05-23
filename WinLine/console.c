@@ -3,13 +3,13 @@
 #include "string.h";
 #include "console.h";
 #include "erros.h";
-#
+
 
 
 int main()
 {
     int exitValue = 0;
-    while (true)
+    while (exitValue == 0) 
     {
         char* command[30];
         printf("hello world> ");
