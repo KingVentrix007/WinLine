@@ -3,18 +3,33 @@
 #include "string.h";
 #define MAX_LENGTH 100
 
-char split(char *str,char *delimiters)
+char split(char strs[],char delimiterss)
 {
-    char array_out[MAX_LENGTH];
-    char *token = strtok(str,delimiters);
-    int count = 0;
-     while (token != NULL)
-    {
-            printf("Split: %s\n", token);
-            array_out[count] = token;
-            count++;
+    // char array_out[MAX_LENGTH];
+    // char *tokens = strtok(str,delimiters);
+    // int count = 0;
+    //  while (tokens != NULL)
+    // {
+    //         printf("Split: %s\n", tokens);
+    //         //array_out[count] = token;
+    //         count++;
                 
             
-            token = strtok(NULL, delimiters);
+    //         tokens = strtok(NULL, delimiters);
+    // }
+    
+    char str[100];
+    strcpy(str,strs);
+    // Returns first token
+    char *token = strtok(str, " /");
+   
+    // Keep printing tokens while one of the
+    // delimiters present in str[].
+    while (token != NULL)
+    {
+        printf("%s\n", token);
+        token = strtok(NULL, " /");
     }
+ 
+    //return 0;
 } 
