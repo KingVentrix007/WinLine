@@ -14,7 +14,7 @@ int main()
     while (exitValue == 0) 
     {
         char* command[30];
-        printf("Enter a command3> ");
+        printf("Enter a command1> ");
         fgets(command, sizeof(command), stdin);
         char * args = command;
         if (strstr(command, " /")!=NULL)
@@ -31,12 +31,12 @@ int main()
             printf("No /\n");
         }
         
-        printf("ARGS: %s\n", args);
-        if (strcmp("help",args) == 0)
+        printf("AARGS: %s\n", args);
+        if (strstr(args,"help") != NULL)
         {
             printf("Help command\n");
         }
-        if(strcmp(args, "exit") == 0)
+        if(strstr(args, "exit") != NULL)
         {
             printf("Exit\n");
             exitValue = 1;
