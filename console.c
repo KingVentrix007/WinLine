@@ -7,6 +7,7 @@
 #include "direct.h";
 #include "filehandling.c";
 #include "debuger.c";
+#include "stringhandling.c";
 
 
 
@@ -87,7 +88,8 @@ int main()
         }
         else if(strstr(args, "debug") != NULL)
         {
-            debug = 0;
+            split(args," /");
+            //debug = 0;
         }
         
         else 
