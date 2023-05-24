@@ -1,6 +1,9 @@
 {
     "files.associations": {
-        "console.h": "c"
+        "console.h": "c",
+        "stdio.h": "c",
+        "filehandling.h": "c",
+        "winbase.h": "c"
     },
     "cSpell.words": [
         "Winline"
