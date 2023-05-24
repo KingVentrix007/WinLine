@@ -14,18 +14,37 @@ int main()
     while (exitValue == 0) 
     {
         char* command[30];
-        printf("Enter a command> ");
+        printf("Enter a command1> ");
         fgets(command, sizeof(command), stdin);
-       
-        char * args = strtok(command, "/");
-        if (strcmp(args, "help") == 0)
+        char * args = command;
+        if (strstr(command, " /")!=NULL)
         {
-            printf("Help command");
+            char * argsC = strtok(command, " /");
+            memcpy(args, argsC,strlen(args));
+            printf("/\n");
+
         }
-        if(strcmp(args, "exit") == 0)
+        else
         {
-            printf("Exit");
+            char * argsC = command;
+            memcpy(args, argsC,strlen(args));
+            printf("No /\n");
+        }
+        
+        printf("AARGS: %s\n", args);
+        if (strstr(args,"help") != NULL)
+        {
+            printf("Help command\n");
+        }
+        if(strstr(args, "exit") != NULL)
+        {
+            printf("Exit\n");
             exitValue = 1;
+        }
+        else 
+        {
+            printf("Command not found\n");
+
         }
         // while (args != NULL)
         // {
