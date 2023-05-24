@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "console.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "Winline"
+    ]
 }
