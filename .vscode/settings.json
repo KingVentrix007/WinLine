@@ -4,7 +4,8 @@
         "stdio.h": "c",
         "filehandling.h": "c",
         "winbase.h": "c",
-        "windows.h": "c"
+        "windows.h": "c",
+        "direct.h": "c"
     },
     "cSpell.words": [
         "Winline"

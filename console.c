@@ -4,51 +4,17 @@
 #include "console.h";
 #include "erros.h";
 #include "windows.h";
-int ReadFileWin()
-{
-    FILE *file;
-    char filename[100];
-    char ch;
+#include "direct.h";
+#include "filehandling.c";
+#include "debuger.c";
 
-    printf("Enter the file name: ");
-    scanf("%s", filename);
 
-    // Open the file in read mode
-    file = fopen(filename, "r");
-
-    if (file == NULL) {
-        printf("Unable to open the file.\n");
-        return 1;
-    }
-
-    printf("File contents:\n");
-
-    // Read and print each character until the end of file
-    while ((ch = fgetc(file)) != EOF) {
-        printf("%c", ch);
-    }
-    printf("\n");
-
-    // Close the file
-    fclose(file);
-
-    return 0;
-}
-
-void printD(char *input, int* debug)
-{
-    if (debug == 0)
-    {
-        printf("%s", input);
-    }
-    
-}
 
 
 int main()
 {
     
-    int debug = 1;
+    int debug = -1;
     char currentDir[MAX_PATH];
 
     if (GetCurrentDirectory(MAX_PATH, currentDir) == 0) {
@@ -68,14 +34,14 @@ int main()
         {
             char * argsC = strtok(command, " /");
             memcpy(args, argsC,strlen(args));
-            printD("/\n",debug);
+            debug_win("/\n",debug);
 
         }
         else
         {
             char * argsC = command;
             memcpy(args, argsC,strlen(args));
-            printD("No /\n",debug);
+            debug_win("No /\n",debug);
         }
         if (strstr(args,"help") != NULL)
         {
@@ -88,8 +54,42 @@ int main()
         }
         else if(strstr(args, "rfile") != NULL)
         {
-            ReadFileWin();
+            int exitC;
+            exitC = ReadFileWin();
+            debug_win(exitC,debug);
         }
+        else if (strstr(args, "wfile") != NULL)
+        {
+            int exitC;
+            exitC = WriteFileWin();
+            debug_win(exitC,debug);
+        }
+        else if (strstr(args, "mfile") != NULL)
+        {
+            int exitC;
+            exitC = MakeFileWin();
+            debug_win(exitC,debug);
+
+        }
+        else if (strstr(args, "dfile") != NULL)
+        {
+            int exitC;
+            exitC = DeleteFileWin();
+            debug_win(exitC,debug);
+
+        }
+        else if (strstr(args, "cd") != NULL)
+        {
+            int exitC;
+            exitC = setDirectoryWin();
+            debug_win(exitC,debug);
+
+        }
+        else if(strstr(args, "debug") != NULL)
+        {
+            debug = 0;
+        }
+        
         else 
         {
             printf("Command not found\n");
