@@ -3,9 +3,7 @@
 #include "string.h";
 #include "console.h";
 #include "erros.h";
-//#include "winbase.h";
 #include "windows.h";
-//#include <direct.h>;
 int ReadFileWin()
 {
     FILE *file;
@@ -36,17 +34,6 @@ int ReadFileWin()
 
     return 0;
 }
-// char ReadFile(char *filename)
-// {
-//     FILE *fp;
-//     char buff[100];
-//     fp = fopen(filename, "r");
-//     fgets(buff, 255, fp);
-//     printf("%s\n", filename);
-//     printf("HERE");
-//     return buff;
-// }
-
 
 void printD(char *input, int* debug)
 {
@@ -70,13 +57,6 @@ int main()
     }
 
     printf("Current Directory: %s\n", currentDir);
-    // if (argc == 2)
-    // {
-    //     if (strcmp(argv[1], "debug") == 0)
-    //     {
-    //         int debug = 0;
-    //     }
-    // }
     int exitValue = 0;
     while (exitValue == 0) 
     {
@@ -97,8 +77,6 @@ int main()
             memcpy(args, argsC,strlen(args));
             printD("No /\n",debug);
         }
-        
-        ///printf("AARGS: %s\n", args);
         if (strstr(args,"help") != NULL)
         {
             printf("Help command\n");
@@ -111,29 +89,6 @@ int main()
         else if(strstr(args, "rfile") != NULL)
         {
             ReadFileWin();
-            // printD("Length of args%i\n",strlen(args));
-            // char *argsFile[5];
-            // for (int i = 0; i < 5; i++)
-            // {
-            //     // if (strcmp(args,NULL) == 0)
-            //     // {
-            //     //     i = 5;
-            //     // }
-                
-            //     if(args != NULL)
-            //     {
-            //         //printf("ARGS: %s\n", args);
-            //         argsFile[i] = args;
-            //         //printf("argsFile%s\n", argsFile[i]);
-
-            //     }
-                
-            //     args = strtok(NULL, " /");
-            // }
-            // ReadFile(argsFile[1]);
-            //printf("File %s\n", buff);
-            
-            
         }
         else 
         {

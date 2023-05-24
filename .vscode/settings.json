@@ -3,7 +3,8 @@
         "console.h": "c",
         "stdio.h": "c",
         "filehandling.h": "c",
-        "winbase.h": "c"
+        "winbase.h": "c",
+        "windows.h": "c"
     },
     "cSpell.words": [
         "Winline"
