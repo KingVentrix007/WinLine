@@ -4,6 +4,8 @@
 #include "stdlib.h";
 #include "windows.h";
 #include "direct.h";
+#include "sys/stat.h";
+#include "stdbool.h";
 int ReadFileWin(char filename_in[100])
 {
     FILE *file;
@@ -155,4 +157,30 @@ int setDirectoryWin(char newDirectory[100])
     }
 
     return 0;
+}
+int directoryExists(const char *path) {
+    struct stat info;
+    if (stat(path, &info) != 0) {
+        return false;
+    }
+    return S_ISDIR(info.st_mode);
+}
+int MakeDirectory(char* directoryPath)
+
+{
+    if (mkdir(directoryPath) == 0) {
+        return 0;
+    } else {
+        return -1;
+    }
+
+    
+}
+int FileExists(char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file != NULL) {
+        fclose(file);
+        return 0; // File exists
+    }
+    return 404; // File doesn't exist
 }

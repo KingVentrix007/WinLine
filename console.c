@@ -19,15 +19,71 @@
 #define MAX_ARGUMENTS 10
 #define MAX_ARGUMENT_LENGTH 20
 
+int init_system(char *check)
+{
+    if (strcmp(check, "check") == 0)
+    {
+        if (directoryExists("system"))
+        {
+            return 0;
+        }
+        else
+        {
+            return FileNotFound;
+        }
 
+    }
+    else if (strcmp(check, "system"))
+    {
+        int out = MakeDirectory("system");
+        if(out == 0)
+        {
+            printf("%s created\n", check);
+        }
+        else if (out == -1)
+        {
+            printf("%s Failed to create\n", check);
+        }
+        
+    }
+    else if (strcmp(check,"sys_var.txt") == 0)
+    {
+       int out = FileExists("system/sys.var.txt");
+       return out;
+    }
+    
+    
+
+}
 
 int main() {
+    int out;
+    out = init_system("check");
+    if (out == 404)
+    {
+        out = init_system("system");
+    }
+    else if (out == 0)
+    {
+        out = init_system("sys_var.txt");
+        if (out == 404)
+        {
+            MakeFileWin("system/sys.var.txt");
+        }
+        else if (out == 1)
+        {
+            char vars = ReadFileWin("system/var.txt");
+            printf("%s\n", vars);
+        }
+        
+    }
     char input[MAX_COMMAND_LENGTH];
     char* arguments[MAX_ARGUMENTS];
     int numArguments;
 
     while (1) {
-        printf("> ");
+        printf("\033[0;32mEnter command> ");
+        printf("\033[0;37m");
         fgets(input, sizeof(input), stdin);
         
         // Remove newline character from input
@@ -52,7 +108,7 @@ int main() {
         else if (strcmp(arguments[0], "help") == 0)
         {
             printf("Available commands: ");
-            printf("\n\tComing soon");
+            printf("\n\tComing soon\n");
         }
         else if (strcmp(arguments[0], "rfile") == 0 && (numArguments -1 ==1))
         { 
