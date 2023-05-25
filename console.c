@@ -8,7 +8,7 @@
 #include "filehandling.c";
 #include "debuger.c";
 #include "stringhandling.c";
-
+#include "multiline.c";
 
 
 
@@ -114,9 +114,18 @@ int main() {
         { 
             ReadFileWin(arguments[1]);
         }
-        else if (strcmp(arguments[0], "wfile") == 0 && (numArguments -1 ==1))
+        else if (strcmp(arguments[0], "wfile") == 0 && (numArguments -1 ==2))
         { 
-            WriteFileWin(arguments[1]);
+            if(strcmp(arguments[2], "a") != 0)
+            { 
+                WriteFileWin(arguments[1],arguments[2]);
+            }
+            else if (strcmp(arguments[2], "a")==0)
+            {
+                char write = multi();
+                printf("%s\n",write);
+                //WriteFileWin(arguments[1],write);
+            }
         }
         else if (strcmp(arguments[0], "mfile") == 0 && (numArguments -1 ==1))
         { 

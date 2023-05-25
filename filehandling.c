@@ -44,10 +44,10 @@ int ReadFileWin(char filename_in[100])
 
     return 0;
 }
-int WriteFileWin(char filename[100])
+int WriteFileWin(char filename[100],char data[100])
 {
     
-    char data[100];
+    //char data[100];
     FILE *file;
     //char filename[100];
     char ch;
@@ -59,14 +59,14 @@ int WriteFileWin(char filename[100])
     //     i++;
     // }
     // filename[i] = '\0';
-    printf("Enter the data to write to the file: ");
-    fgets(data, sizeof(data), stdin);
-    int q;
-    while (data[q] != '\n' && data[q] != '\0') {
-        q++;
-    }
-    data[q] = '\0';
-    //scanf("%s", data);
+    // printf("Enter the data to write to the file: ");
+    // fgets(data, sizeof(data), stdin);
+    // int q;
+    // while (data[q] != '\n' && data[q] != '\0') {
+    //     q++;
+    // }
+    // data[q] = '\0';
+    // //scanf("%s", data);
 
     // Open the file in write mode ("w" flag)
     file = fopen(filename, "w");
