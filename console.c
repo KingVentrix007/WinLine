@@ -49,6 +49,13 @@ int main() {
             
             
         }
+        else if (strcmp(arguments[0], "help") == 0)
+        {
+            printf("Available commands: ");
+            printf("\n\tComing soon");
+        }
+        
+        
             
         
         // Handle other commands

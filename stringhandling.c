@@ -46,11 +46,11 @@ void parse_string(char *parser, char *string, char c)
 }
 void parseCommand(char* command, char** arguments, int* numArguments) {
     *numArguments = 0;
-    char* token = strtok(command, " ");
+    char* token = strtok(command, " /");
     
     while (token != NULL) {
         arguments[*numArguments] = token;
         (*numArguments)++;
-        token = strtok(NULL, " ");
+        token = strtok(NULL, " /");
     }
 }
