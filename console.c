@@ -15,7 +15,7 @@
 int main()
 {
     
-    char debug = '-1';
+    int* debug = -1;
     char currentDir[MAX_PATH];
 
     if (GetCurrentDirectory(MAX_PATH, currentDir) == 0) {
@@ -98,10 +98,25 @@ int main()
             
 			///sha224(string);
             //split(args," /");
-            //result = string - '0';
+            printf("%s\n", string);
+            if (strcmp(string,"0") == 0)
+            {
+                //printf("0");
+                debug = 0;
+            }
+            else if (strcmp(string,"1") == 0)
+            {
+                //printf("1");
+                debug = 1;
+            }
+            else
+            {
+                //printf("not valid");
+                printf("Debug level %s is not a valid level",string);
+            }
             //printf(type());
-            debug = string;
-            printf("String:%s\n", debug);
+            //debug = string;
+           
 
         }
         

@@ -10,7 +10,7 @@ void printD(char *input)
 {
     printf("%s\n", input);
 }
-void debug_win(char *input, char* debug_level)
+void debug_win(char *input, int* debug_level)
 {
     if (debug_level == "0")
     {
