@@ -44,3 +44,13 @@ void parse_string(char *parser, char *string, char c)
     }
     parser[i] = '\0';
 }
+void parseCommand(char* command, char** arguments, int* numArguments) {
+    *numArguments = 0;
+    char* token = strtok(command, " ");
+    
+    while (token != NULL) {
+        arguments[*numArguments] = token;
+        (*numArguments)++;
+        token = strtok(NULL, " ");
+    }
+}
