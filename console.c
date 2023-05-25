@@ -126,11 +126,14 @@ int main() {
         { 
             DeleteFileWin(arguments[1]);
         }
-         else if (strcmp(arguments[0], "mfile") == 0 && (numArguments -1 ==1))
+        else if (strcmp(arguments[0], "mfile") == 0 && (numArguments -1 ==1))
         { 
             setDirectoryWin(arguments[1]);
         }
-        
+        else if (strcmp(arguments[0], "ls") == 0 && (numArguments -1 ==0))
+        { 
+            ListContents();
+        }
         
             
         

@@ -9,5 +9,6 @@
     },
     "cSpell.words": [
         "Winline"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "enabled"
 }

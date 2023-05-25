@@ -6,6 +6,8 @@
 #include "direct.h";
 #include "sys/stat.h";
 #include "stdbool.h";
+#include "dirent.h";
+
 int ReadFileWin(char filename_in[100])
 {
     FILE *file;
@@ -183,4 +185,27 @@ int FileExists(char *filename) {
         return 0; // File exists
     }
     return 404; // File doesn't exist
+}
+
+int ListContents()
+{
+    DIR *dir;
+    struct dirent *entry;
+
+    // Open the current directory
+    dir = opendir(".");
+    if (dir == NULL) {
+        printf("Failed to open directory.\n");
+        return 1;
+    }
+
+    // Read directory entries
+    while ((entry = readdir(dir)) != NULL) {
+        printf("%s\n", entry->d_name);
+    }
+
+    // Close the directory
+    closedir(dir);
+
+    return 0;
 }
