@@ -5,7 +5,11 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/MinGW/include/**",
-                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/"
+                "C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0/",
+                "${workspaceFolder}/include/other",
+                "${workspaceFolder}/include/filesystem",
+                "${workspaceFolder}/include/stringhandling",
+                "${workspaceFolder}/include/Debuger"
             ],
             "defines": [
                 "_DEBUG",
