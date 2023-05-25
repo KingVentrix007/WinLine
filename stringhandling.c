@@ -32,4 +32,15 @@ char split(char strs[],char delimiterss)
     }
  
     //return 0;
-} 
+}
+void parse_string(char *parser, char *string, char c)
+{
+    int i = 0;
+
+    while (string[i] != c)
+    {
+        parser[i] = string[i];
+        i++;
+    }
+    parser[i] = '\0';
+}

@@ -15,7 +15,7 @@
 int main()
 {
     
-    int debug = -1;
+    char debug = '-1';
     char currentDir[MAX_PATH];
 
     if (GetCurrentDirectory(MAX_PATH, currentDir) == 0) {
@@ -31,21 +31,22 @@ int main()
         printf("Enter a command1> ");
         fgets(command, sizeof(command), stdin);
         char * args = command;
-        if (strstr(command, " /")!=NULL)
-        {
-            char * argsC = strtok(command, " /");
-            memcpy(args, argsC,strlen(args));
-            debug_win("/\n",debug);
+        // if (strstr(command, " /")!=NULL)
+        // {
+        //     char * argsC = strtok(command, " /");
+        //     memcpy(args, argsC,strlen(args));
+        //     debug_win("/\n",debug);
 
-        }
-        else
-        {
-            char * argsC = command;
-            memcpy(args, argsC,strlen(args));
-            debug_win("No /\n",debug);
-        }
+        // }
+        // else
+        // {
+        //     char * argsC = command;
+        //     memcpy(args, argsC,strlen(args));
+        //     debug_win("No /\n",debug);
+        // }
         if (strstr(args,"help") != NULL)
         {
+            debug_win("Usage: help",debug);
             printf("Help command\n");
         }
         else if(strstr(args, "exit") != NULL)
@@ -88,8 +89,20 @@ int main()
         }
         else if(strstr(args, "debug") != NULL)
         {
-            split(args," /");
-            //debug = 0;
+            //int result;
+            char *parser;
+			char string[64];
+			parser = strstr(args, "debug /");
+			parser += strlen("debug /");
+			parse_string(string, parser, ' ');
+            
+			///sha224(string);
+            //split(args," /");
+            //result = string - '0';
+            //printf(type());
+            debug = string;
+            printf("String:%s\n", debug);
+
         }
         
         else 
