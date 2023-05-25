@@ -16,14 +16,7 @@ int main()
 {
     
     char debug = '-1';
-    char currentDir[MAX_PATH];
-
-    if (GetCurrentDirectory(MAX_PATH, currentDir) == 0) {
-        printf("Failed to retrieve the current directory.\n");
-        return 1;
-    }
-
-    printf("Current Directory: %s\n", currentDir);
+    
     int exitValue = 0;
     while (exitValue == 0) 
     {
