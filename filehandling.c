@@ -4,14 +4,14 @@
 #include "stdlib.h";
 #include "windows.h";
 #include "direct.h";
-int ReadFileWin()
+int ReadFileWin(char filename_in[100])
 {
     FILE *file;
     char filename[100];
     char ch;
-
-    printf("Enter the file name: ");
-    fgets(filename, sizeof(filename), stdin);
+    
+    //printf("Enter the file name: ");
+    //fgets(filename, sizeof(filename), stdin);
     ///scanf("%s", filename);
     int i;
     while (filename[i] != '\n' && filename[i] != '\0') {
@@ -20,7 +20,7 @@ int ReadFileWin()
     filename[i] = '\0';
 
     // Open the file in read mode
-    file = fopen(filename, "r");
+    file = fopen(filename_in, "r");
 
     if (file == NULL) {
         printf("Unable to open the file.\n");
@@ -40,26 +40,26 @@ int ReadFileWin()
 
     return 0;
 }
-int WriteFileWin()
+int WriteFileWin(char filename[100])
 {
     
     char data[100];
     FILE *file;
-    char filename[100];
+    //char filename[100];
     char ch;
 
-    printf("Enter the file name: ");
-    fgets(filename, sizeof(filename), stdin);
-    int i;
-    while (filename[i] != '\n' && filename[i] != '\0') {
-        i++;
-    }
-    filename[i] = '\0';
+    //printf("Enter the file name: ");
+    //fgets(filename, sizeof(filename), stdin);
+    // int i;
+    // while (filename[i] != '\n' && filename[i] != '\0') {
+    //     i++;
+    // }
+    // filename[i] = '\0';
     printf("Enter the data to write to the file: ");
     fgets(data, sizeof(data), stdin);
     int q;
     while (data[q] != '\n' && data[q] != '\0') {
-        i++;
+        q++;
     }
     data[q] = '\0';
     //scanf("%s", data);
@@ -83,17 +83,17 @@ int WriteFileWin()
     return 0;
 
 }
-int MakeFileWin()
+int MakeFileWin(char filename[100])
 {
     FILE *file;
-    char filename[100];
-    printf("Enter the file name: ");
-    fgets(filename, sizeof(filename), stdin);
-    int i;
-    while (filename[i] != '\n' && filename[i] != '\0') {
-        i++;
-    }
-    filename[i] = '\0';
+    // char filename[100];
+    // printf("Enter the file name: ");
+    // fgets(filename, sizeof(filename), stdin);
+    // int i;
+    // while (filename[i] != '\n' && filename[i] != '\0') {
+    //     i++;
+    // }
+    // filename[i] = '\0';
 
     ///scanf("%s", filename);
     printf("filename: %s\n", filename);
@@ -115,19 +115,19 @@ int MakeFileWin()
 
     return 0;
 }
-int DeleteFileWin()
+int DeleteFileWin(char file_path[100])
 {
-    char file_path[100];
+    // char file_path[100];
 
-    printf("Enter the path of the file to be deleted: ");
-    fgets(file_path, sizeof(file_path), stdin);
+    // printf("Enter the path of the file to be deleted: ");
+    // fgets(file_path, sizeof(file_path), stdin);
 
-    // Remove the newline character from the file_path
-    int i = 0;
-    while (file_path[i] != '\n' && file_path[i] != '\0') {
-        i++;
-    }
-    file_path[i] = '\0';
+    // // Remove the newline character from the file_path
+    // int i = 0;
+    // while (file_path[i] != '\n' && file_path[i] != '\0') {
+    //     i++;
+    // }
+    // file_path[i] = '\0';
 
     // Delete the file
     if (remove(file_path) == 0) {
@@ -138,15 +138,15 @@ int DeleteFileWin()
 
     return 0;
 }
-int setDirectoryWin()
+int setDirectoryWin(char newDirectory[100])
 {
-    char newDirectory[100];  // Adjust the size as per your needs
+    // char newDirectory[100];  // Adjust the size as per your needs
 
-    printf("Enter the new directory path: ");
-    fgets(newDirectory, sizeof(newDirectory), stdin);
+    // printf("Enter the new directory path: ");
+    // fgets(newDirectory, sizeof(newDirectory), stdin);
 
-    // Remove newline character from the end of the directory path
-    newDirectory[strcspn(newDirectory, "\n")] = '\0';
+    // // Remove newline character from the end of the directory path
+    // newDirectory[strcspn(newDirectory, "\n")] = '\0';
 
     if (_chdir(newDirectory) == 0) {
         printf("Current working directory changed to: %s\n", newDirectory);

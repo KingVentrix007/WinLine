@@ -54,6 +54,26 @@ int main() {
             printf("Available commands: ");
             printf("\n\tComing soon");
         }
+        else if (strcmp(arguments[0], "rfile") == 0 && (numArguments -1 ==1))
+        { 
+            ReadFileWin(arguments[1]);
+        }
+        else if (strcmp(arguments[0], "wfile") == 0 && (numArguments -1 ==1))
+        { 
+            WriteFileWin(arguments[1]);
+        }
+        else if (strcmp(arguments[0], "mfile") == 0 && (numArguments -1 ==1))
+        { 
+            MakeFileWin(arguments[1]);
+        }
+         else if (strcmp(arguments[0], "dfile") == 0 && (numArguments -1 ==1))
+        { 
+            DeleteFileWin(arguments[1]);
+        }
+         else if (strcmp(arguments[0], "mfile") == 0 && (numArguments -1 ==1))
+        { 
+            setDirectoryWin(arguments[1]);
+        }
         
         
             
@@ -61,13 +81,13 @@ int main() {
         // Handle other commands
         // You can add more commands and their respective functionalities here
 
-        printf("Command: %s\n", arguments[0]);
-        printf("Arguments (%d): ", numArguments - 1);
+        //@printf("Command: %s\n", arguments[0]);
+        //@printf("Arguments (%d): ", numArguments - 1);
         
-        for (int i = 1; i < numArguments; i++)
-            printf("%s ", arguments[i]);
+        // for (int i = 1; i < numArguments; i++)
+        //     printf("%s ", arguments[i]);
         
-        printf("\n\n");
+        // printf("\n\n");
     }
 
     return 0;
