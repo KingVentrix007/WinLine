@@ -5,7 +5,11 @@
         "filehandling.h": "c",
         "winbase.h": "c",
         "windows.h": "c",
-        "direct.h": "c"
+        "direct.h": "c",
+        "stdarg.h": "c",
+        "stdlib.h": "c",
+        "stat.h": "c",
+        "types.h": "c"
     },
     "cSpell.words": [
         "Winline"
