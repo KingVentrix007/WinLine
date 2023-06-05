@@ -17,7 +17,7 @@
 
 #define MAX_COMMAND_LENGTH 100
 #define MAX_ARGUMENTS 10
-#define MAX_ARGUMENT_LENGTH 20
+#define MAX_ARGUMENT_LENGTH 20 
 
 int init_system(char *check)
 {
