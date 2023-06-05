@@ -6,11 +6,10 @@
         "winbase.h": "c",
         "windows.h": "c",
         "direct.h": "c",
-        "string.h": "c",
         "stdarg.h": "c",
-        "types.h": "c",
-        "ctype.h": "c",
-        "malloc.h": "c"
+        "stdlib.h": "c",
+        "stat.h": "c",
+        "types.h": "c"
     },
     "cSpell.words": [
         "Winline"
