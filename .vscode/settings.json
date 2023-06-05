@@ -9,7 +9,8 @@
         "stdarg.h": "c",
         "stdlib.h": "c",
         "stat.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "string.h": "c"
     },
     "cSpell.words": [
         "Winline"
